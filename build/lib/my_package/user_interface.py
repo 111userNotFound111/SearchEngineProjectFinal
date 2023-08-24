@@ -67,9 +67,10 @@ class UserInterface:
                 value = input()
                 
                 # Check if the value exists in the input  
-                while value not in self.df_combined[column_name].values:
-                    value = input("Value not found in the selected column.")
-                
+                if value not in self.df_combined[column_name].values:
+                    print("No results found")
+                    value=False
+
                 return file_name, column_name, value
 
 

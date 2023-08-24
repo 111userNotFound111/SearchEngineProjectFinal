@@ -19,14 +19,21 @@ class Main():
             
             dataset, term, value = self.ui.run()  
 
-            dp = DataProcessing(self.etl.df_combined,self.column_mapping)
-            dp.search(dataset, term, value)
+            if value==True:
+                print('value exists: ', value)
+                dp = DataProcessing(self.etl.df_combined,self.column_mapping)
+                dp.search(dataset, term, value)
 
-            print("\nDo you want to continue or quit? (Type 'continue' to search again or 'quit' to exit)")
-            user_decision = input()
+                print("\nDo you want to continue or quit? (Type 'continue' to search again or 'quit' to exit)")
+                user_decision = input()
+            else:
+                print('no value')
+                print("\nDo you want to continue or quit? (Type 'continue' to search again or 'quit' to exit)")
+                user_decision = input()
+
             if user_decision.lower() == 'quit':
                 print("Goodbye!")
-                
+
                 break  # Exit the search loop
 
 def main_entry_point():
