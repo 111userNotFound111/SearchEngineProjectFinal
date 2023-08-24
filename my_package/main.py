@@ -17,23 +17,27 @@ class Main():
         self.etl.data_ETL()
         while True:  # Start of the search loop
             
-            dataset, term, value = self.ui.run()  
-
-            if value==True:
-                dp = DataProcessing(self.etl.df_combined,self.column_mapping)
-                dp.search(dataset, term, value)
-
-                print("\nDo you want to continue or quit? (Type 'continue' to search again or 'quit' to exit)")
-                user_decision = input()
-            else:
-                print("\nDo you want to continue or quit? (Type 'continue' to search again or 'quit' to exit)")
-                user_decision = input()
-
-            if user_decision.lower() == 'quit':
+            dataset, term, value, quit_status = self.ui.run()  
+            
+            if quit_status==True:
                 print("Goodbye!")
-
                 break  # Exit the search loop
+            else:
+                if value:
+                    print('value exists')
+                    dp = DataProcessing(self.etl.df_combined,self.column_mapping)
+                    dp.search(dataset, term, value)
 
+                    print("\nDo you want to continue or quit? (Type 'continue' to search again or 'quit' to exit)")
+                    user_decision = input()
+                else:
+                    print('value does not exists')
+                    print("\nDo you want to continue or quit? (Type 'continue' to search again or 'quit' to exit)")
+                    user_decision = input()
+
+                if user_decision.lower() == 'quit':
+                    print("Goodbye!")
+                    break  # Exit the search loop
 def main_entry_point():
     main_app = Main()
     main_app.run()
