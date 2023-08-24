@@ -1,0 +1,2 @@
+[console_scripts]
+myapp = my_package.main:main_entry_point

@@ -1,0 +1,15 @@
+setup.py
+my_package/__init__.py
+my_package/data_ETL.py
+my_package/data_processing.py
+my_package/main.py
+my_package/organizations.json
+my_package/tickets.json
+my_package/user_interface.py
+my_package/users.json
+zendesk_app.egg-info/PKG-INFO
+zendesk_app.egg-info/SOURCES.txt
+zendesk_app.egg-info/dependency_links.txt
+zendesk_app.egg-info/entry_points.txt
+zendesk_app.egg-info/requires.txt
+zendesk_app.egg-info/top_level.txt
